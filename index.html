@@ -145,35 +145,34 @@
         }
 
         .mockup {
-            width: 300px; /* Adjust based on your screenshot */
-            height: 600px;
-            background: #2a2a2a;
-            border-radius: 40px;
-            border: 8px solid #444;
+            /* UPDATED for image use */
+            width: 300px; 
+            height: auto;
+            /* Removed background and border so the image transparency works */
+            background: transparent; 
+            border: none;
             position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            overflow: hidden;
-            /* Placeholder styling if no image */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #555;
-            font-size: 0.9rem;
+            /* Optional: Add a subtle glow/shadow behind the phone */
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .mockup:hover {
+            transform: translateY(-10px);
         }
         
-        /* If you have a screenshot, use this class on the <img> */
         .mockup img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
         }
 
         /* --- Features Grid --- */
         .features {
             padding: 5rem 5%;
             background: var(--bg-card);
-            margin-top: -100px; /* Overlap effect */
-            padding-top: 150px;
+            margin-top: -50px; /* Adjusted overlap */
+            padding-top: 100px;
             clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
         }
 
@@ -269,10 +268,7 @@
 
         <div class="mockup-container">
             <div class="mockup">
-                <div style="text-align:center; padding: 20px;">
-                    <i class="fa-solid fa-mobile-screen" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
-                    <p>Add app screenshot here</p>
-                </div>
+                <img src="app_mockup.png" alt="KeepUp App Screenshot">
             </div>
         </div>
     </section>
