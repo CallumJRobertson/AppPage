@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeepUp - Stay Updated</title>
+    <meta name="description" content="The best way to keep your apps updated on Android.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Your Brand Colors */
+            --bg-dark: #0f0b15;       /* Very dark purple/black background */
+            --bg-card: #1a1424;       /* Slightly lighter for cards */
+            --primary: #8b5cf6;       /* Vibrant purple (like your logo dot) */
+            --primary-hover: #7c3aed; /* Darker purple for hover */
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Navbar --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px; /* Matches app icon shape */
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- Phone Mockup Area --- */
+        .mockup-container {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .mockup {
+            width: 300px; /* Adjust based on your screenshot */
+            height: 600px;
+            background: #2a2a2a;
+            border-radius: 40px;
+            border: 8px solid #444;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+            /* Placeholder styling if no image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        /* If you have a screenshot, use this class on the <img> */
+        .mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Features Grid --- */
+        .features {
+            padding: 5rem 5%;
+            background: var(--bg-card);
+            margin-top: -100px; /* Overlap effect */
+            padding-top: 150px;
+            clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.03);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .features { clip-path: none; margin-top: 0; padding-top: 4rem; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="logo_clean.png" alt="KeepUp Logo">
+            <span>KeepUp</span>
+        </div>
+        <div class="nav-links">
+            <a href="https://github.com/CallumJRobertson/KUAndroid" target="_blank">GitHub</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Updates, Simplified.</h1>
+        <p class="subtitle">
+            The easiest way to keep your Android apps fresh. <br>
+            Secure, fast, and open source.
+        </p>
+        
+        <div class="cta-buttons">
+            <a href="https://github.com/CallumJRobertson/KUAndroid/releases/latest" class="btn btn-primary">
+                <i class="fa-brands fa-android"></i> Download APK
+            </a>
+            
+            <a href="https://github.com/CallumJRobertson/KUAndroid" class="btn btn-secondary">
+                <i class="fa-brands fa-github"></i> View Source
+            </a>
+        </div>
+
+        <div class="mockup-container">
+            <div class="mockup">
+                <div style="text-align:center; padding: 20px;">
+                    <i class="fa-solid fa-mobile-screen" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                    <p>Add app screenshot here</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+                <h3>Auto Updates</h3>
+                <p>Never miss a version. KeepUp checks for updates in the background automatically.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Secure</h3>
+                <p>Private verification. Direct GitHub downloads. No tracking, no ads.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Lightning Fast</h3>
+                <p>Built with native Kotlin for maximum performance and minimal battery usage.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 KeepUp. Open Source Project.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">
+            Designed by <a href="https://github.com/CallumJRobertson">Callum Robertson</a>
+        </p>
+    </footer>
+
+</body>
+</html>
